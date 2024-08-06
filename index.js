@@ -4,6 +4,7 @@ const corretora = require("./modulos/corretora.js");
 const corretor = require("./modulos/corretor.js");
 const cliente = require("./modulos/cliente.js");
 const imovel = require("./modulos/imovel.js");
+const venda = require("./modulos/venda.js");
 
 console.log('==GERENCIAMENTO DE CORRETORA DE IMÓVEIS==')
 
@@ -15,6 +16,7 @@ while(true){
     2. Corretor
     3. Cliente
     4. Imóvel
+    5. Vendas
     0. Sair
     `);
     
@@ -161,6 +163,43 @@ while(true){
                     break;
                 case 4:
                     imovel.remover();
+                    break;
+                case 5:
+                    continuar = false;
+                    break;
+                default:
+                    console.log('Opção inválida.')
+                    break;    
+            }
+        }
+        break;
+        case 5:
+            continuar = true;
+            while(continuar){
+                console.log(`
+    GERENCIAMENTO DE VENDAS
+                
+    1. Criar
+    2. Listar
+    3. Atualizar
+    4. Remover
+    5. Sair
+                `);
+                
+                const opcaoServico = parseInt(prompt('Escolha uma opção: '));
+                
+                switch (opcaoServico) {
+                    case 1:
+                    venda.criar();
+                    break;
+                case 2:
+                    venda.listar();
+                    break;
+                case 3:
+                    venda.atualizar();
+                    break;
+                case 4:
+                    venda.remover();
                     break;
                 case 5:
                     continuar = false;

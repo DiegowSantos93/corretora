@@ -36,12 +36,19 @@ const modelo = (id = ++ultimoId) => {
     ultimoId--;
 };
 
+function mostrar(id){
+    const el = db.find(el => el.id == id)
+
+    return el
+}
+
 const criar = () => {
     const novo = modelo();
 
-    if (novo){}
-    db.push(novo);
-    console.log('Registro criado com sucesso.')
+    if (novo){
+        db.push(novo);
+        console.log('Registro criado com sucesso.')
+    }
 };
 
 const listar = () => {
@@ -85,4 +92,4 @@ const remover = () => {
     }
 };
 
-module.exports = {criar, listar, atualizar, remover}
+module.exports = {criar, listar, atualizar, remover, mostrar}

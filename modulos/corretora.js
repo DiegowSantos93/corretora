@@ -37,9 +37,10 @@ function mostrar(id){
 const criar = () => {
     const novo = modelo();
 
-    if (novo){}
-    db.push(novo);
-    console.log('Registro criado com sucesso.')
+    if (novo){
+        db.push(novo);
+        console.log('Registro criado com sucesso.')
+    }
 };
 
 const listar = () => {
