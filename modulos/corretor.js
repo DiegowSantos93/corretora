@@ -1,0 +1,89 @@
+const prompt = require("prompt-sync")();
+
+const corretora = require("./corretora.js")
+
+const db = [];
+
+let ultimoId = 0;
+
+function getIndice(id){
+    const indice = db.findIndex(el =>  el.id == id)
+
+        if (indice != -1){
+            const novo = modelo(id)
+            return indice
+        } else {
+            console.log('Id inválido.')
+        }
+};
+
+const modelo = (id = ++ultimoId) => {
+    const nome = prompt('Digite o nome: ');
+    
+    let id_corretora = 0;
+    if (corretora.listar()){
+        id_corretora = parseInt(prompt = ('Digite o ID da corretora: '));
+    }
+
+    if (nome != "" && corretora.mostrar(id_corretora)){
+        return {
+            id,
+            nome,
+            id_corretora
+        }
+    }
+
+    console.log('Dados inválidos.')
+    ultimoId--;
+};
+
+const criar = () => {
+    const novo = modelo();
+
+    if (novo){}
+    db.push(novo);
+    console.log('Registro criado com sucesso.')
+};
+
+const listar = () => {
+    if (db.length == 0){
+        console.log('Nenhum registro encontrado.')
+        return false
+    }
+
+    db.forEach(el => console.log(el))
+    return true;
+};
+
+const atualizar = () => {
+    if (listar()){
+        const id = parseInt(prompt('Digite o id que deseja atualizar: '))
+
+        const indice = getIndice(id)
+
+        if (indice > -1){
+            const novo = modelo(id)
+            
+            if (novo) {
+                db[indice] = novo;
+                console.log('Atualizado com sucesso.')
+            }
+        }
+    }
+};
+
+const remover = () => {
+    if (listar()){
+
+        const id = parseInt(prompt('Digite o id que deseja atualizar: '))
+
+        const indice = getIndice(id);
+
+        if (indice > -1){
+            db.splice(indice,1)
+            console.log('Removido com sucesso.')
+        }
+    }
+};
+
+module.exports = {criar, listar, atualizar, remover}
