@@ -16,7 +16,7 @@ while(true){
     
     const opcaoEntidade = parseInt(prompt('Escolha uma opção: '));
     
-    let continuar
+    let continuar;
 
     switch (opcaoEntidade) {
         case 1:
@@ -49,15 +49,19 @@ while(true){
                     break;
                 case 5:
                     continuar = false;
+                    break;
                 default:
                     console.log('Opção inválida.')
-                    break;
+                    break;    
+            }
+        }
+        break;
         case 0:
                 console.log('Saindo do sistema.')
                 process.exit();
+                break;
         default:
                 console.log('Opção inválida.')
-            }
-        }
+                break;
     }
 };
