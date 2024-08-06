@@ -10,7 +10,6 @@ function getIndice(id){
     const indice = db.findIndex(el =>  el.id == id)
 
         if (indice != -1){
-            const novo = modelo(id)
             return indice
         } else {
             console.log('Id inválido.')
@@ -22,7 +21,7 @@ const modelo = (id = ++ultimoId) => {
     
     let id_corretora = 0;
     if (corretora.listar()){
-        id_corretora = parseInt(prompt = ('Digite o ID da corretora: '));
+        id_corretora = parseInt(prompt('Digite o ID da corretora: '));
     }
 
     if (nome != "" && corretora.mostrar(id_corretora)){
