@@ -33,7 +33,9 @@ const modelo = (id = ++ultimoId) => {
     const imovelVenda = imovel.mostrar(id_imovel);
     const clienteVenda = cliente.mostrar(id_cliente);
 
-    if (corretorVenda && imovelVenda && clienteVenda && corretorVenda.idcorretora === imovelVenda.id_corretora) {
+    console.log(corretorVenda)
+
+    if (corretorVenda && imovelVenda && clienteVenda && corretorVenda.id_corretora === imovelVenda.id_corretora) {
         return {
             id,
             id_corretor,
