@@ -23,6 +23,7 @@ const modelo = (id = ++ultimoId) => {
     let id_corretor = 0;
     let id_imovel = 0;
     let id_cliente = 0;
+    
     if (corretor.listar()){
         id_corretor = parseInt(prompt('Digite o ID do corretor: '));
     } 
