@@ -23,9 +23,15 @@ const modelo = (id = ++ultimoId) => {
     let id_corretor = 0;
     let id_imovel = 0;
     let id_cliente = 0;
-    if (corretor.listar() && imovel.listar() && cliente.listar()){
+    if (corretor.listar()){
         id_corretor = parseInt(prompt('Digite o ID do corretor: '));
+    } 
+    
+    if (imovel.listar()){
         id_imovel = parseInt(prompt('Digite o ID do imóvel: '));
+    } 
+    
+    if (cliente.listar()){
         id_cliente = parseInt(prompt('Digite o ID do cliente: '));
     }
 
